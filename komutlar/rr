@@ -1,0 +1,38 @@
+const Discord = require('discord.js');
+
+exports.run = (client, message, args) => {
+
+       message.channel.send(" ``🤖`` Bot yeniden başlatılıyor.").then(async msg => {
+        setTimeout(() => {
+          msg.edit("``💫``  Bağlantı kuruluyor!");
+        }, 1000);
+        setTimeout(() => {
+          msg.edit("``🔮``  Başarılı!");
+        }, 2000);
+        setTimeout(() => {
+          msg.delete(1000)
+        }, 3000);
+           setTimeout(() => {
+           message.channel.send(` ${client.user.username} ismi ile giriş yapıldı!`);
+           message.channel.send(` Şu an ` + client.channels.size + ` adet kanala, ` + client.guilds.size + ` adet sunucuya ve ` + client.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString() + ` kullanıcıya hizmet veriliyor!`)
+        }, 4000);
+              setTimeout(() => {
+          console.log(`Mashiro Bot yeniden başlatılıyor.`);
+          process.exit(0);
+        }, 5000);
+  })
+};
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: ["reboot"],
+  permLevel: 4
+};
+
+exports.help = {
+  name: 'reboot',
+  category: 'Sahip',
+  description: 'Botu yeniden başlatır.',
+  usage: 'reboot'
+};
